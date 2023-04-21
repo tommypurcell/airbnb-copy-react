@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import React from 'react'
 
 let house = {
   title: 'Luxury Villa in Chaweng',
@@ -21,7 +22,16 @@ export default function House() {
   const [selectedPhoto, setSelectedPhoto] = useState(
     'url("https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_05.png")'
   )
-  console.log(selectedPhoto)
+  const [booking, setBooking] = useState(house.booking)
+
+  // functions
+  function requestBooking(e) {
+    e.preventDefault()
+    house.booking = true
+    console.log(house.booking)
+  }
+
+  // return
   return (
     <>
       <>
@@ -260,13 +270,48 @@ export default function House() {
                 <div>
                   <i className="fa fa-thumbs-up p-2" />
                   <span>2 Reviews</span>
-                  <div className="alert alert-success" role="alert">
+                  <div>
+                    {booking ? (
+                      <div className="alert alert-success" role="alert">
+                        <p>Thank you for your inquiry.</p>
+                        add date
+                      </div>
+                    ) : (
+                      <>
+                        <form
+                          onSubmit={(e) => setBooking(true)}
+                          className="p-3"
+                        >
+                          <textarea
+                            className="form-control"
+                            placeholder="Send the host a message..."
+                            id="floatingTextarea2"
+                            style={{ height: 100 }}
+                            defaultValue={''}
+                          />
+                          <button className="btn btn-success mt-2">
+                            Request Booking
+                          </button>
+                        </form>{' '}
+                      </>
+                    )}
+                  </div>
+                  {/* <div className="alert alert-success" role="alert">
                     <p>Thank you for your inquiry.</p>
                     add date
-                  </div>
-                  {/* <textarea class="form-control" placeholder="Send the host a message..." id="floatingTextarea2" style="height: 100px"></textarea>
-                  <label for="floatingTextarea2"></label>
-                  <button type="button" class="btn btn-success mt-2">Request Booking</button> */}
+                  </div> */}
+                  {/* <form onSubmit={(e) => requestBooking(e)} className="p-3">
+                    <textarea
+                      className="form-control"
+                      placeholder="Send the host a message..."
+                      id="floatingTextarea2"
+                      style={{ height: 100 }}
+                      defaultValue={''}
+                    />
+                    <button className="btn btn-success mt-2">
+                      Request Booking
+                    </button>
+                  </form> */}
                 </div>
               </div>
             </div>
