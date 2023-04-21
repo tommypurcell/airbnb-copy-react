@@ -16,6 +16,18 @@ let house = {
   host: { name: 'Tommy', avatar: 'images/randomuser1.png' },
 }
 
+let reviews = [
+  {
+    date: '4/21/2023',
+    description: 'This place is great',
+    rating: 1,
+    author: {
+      name: 'Tim',
+      avatar: 'images/randomuser1.png',
+    },
+  },
+]
+
 export default function House() {
   // state
   const [selectedPhoto, setSelectedPhoto] = useState(
@@ -237,7 +249,7 @@ export default function House() {
                     className="rounded-circle w-25 px-3"
                   />
                   <div className="col">
-                    <span className="row">date of review</span>
+                    <span className="row">{reviews[0].date}</span>
                     <span className="row">User Name</span>
                   </div>
                   <div className="col text-end p-0">
