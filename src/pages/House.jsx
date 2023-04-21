@@ -42,6 +42,9 @@ export default function House() {
     obj.date = e.target.date
     obj.description = e.target.description.value
     console.log(obj)
+    console.log(reviews)
+    reviews.push(obj)
+    console.log(reviews)
   }
 
   return (
