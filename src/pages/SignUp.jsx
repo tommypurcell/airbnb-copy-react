@@ -1,6 +1,4 @@
 export default function SignUp() {
-  // functions
-
   // function to save signup form into object
   function signUp(e) {
     e.preventDefault()
