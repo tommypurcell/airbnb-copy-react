@@ -148,6 +148,11 @@ export default function Profile() {
 
   return (
     <>
+      <div>
+        name: {user.name}
+        email: {user.email}
+        avatar: {user.avatar}
+      </div>
       {/* nav bar */}
       <Nav />
       {/* main container */}

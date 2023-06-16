@@ -12,6 +12,9 @@ export default function Login() {
   const requestLogin = async (e) => {
     e.preventDefault()
 
+    console.log('email', e.target.email.value)
+    console.log('password', e.target.password.value)
+
     let loginAccount = await axios.post('http://localhost:4000/login', {
       email: e.target.email.value,
       password: e.target.password.value,

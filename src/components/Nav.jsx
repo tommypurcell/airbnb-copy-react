@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 axios.defaults.withCredentials = true
 
 export default function Nav() {
@@ -12,10 +12,14 @@ export default function Nav() {
   // check if user is logged in
   const checkLogin = async () => {
     let user = await axios.get('http://localhost:4000/profile')
-    console.log(user.data.isLoggedIn)
-    setLoggedIn(user.data.isLoggedIn)
+    if (user.data.name) {
+      console.log(user.data.name)
+      setLoggedIn(true)
+    } else {
+      console.log(user.data.name)
+      setLoggedIn(false)
+    }
   }
-  checkLogin()
 
   const requestLogout = async (e) => {
     e.preventDefault()
@@ -23,6 +27,11 @@ export default function Nav() {
     console.log(userToLogout.data)
     navigate('/login')
   }
+
+  useEffect(() => {
+    console.log(loggedIn)
+    checkLogin()
+  }, [])
 
   return (
     <>
