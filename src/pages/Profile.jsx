@@ -99,7 +99,8 @@ export default function Profile() {
   const getProfile = async () => {
     try {
       let userProfile = await axios.get(
-        `https://calorie-counter-api-portalversion.onrender.com/profile`
+        `https://calorie-counter-api-portalversion.onrender.com/profile`,
+        { withCredentials: true }
       )
 
       setUser(userProfile.data)
