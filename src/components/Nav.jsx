@@ -70,13 +70,13 @@ export default function Nav() {
                 Logout
               </a>
             ) : (
-              <a
-                href="/login"
+              <Link
+                to="/login"
                 className="btn btn-outline-secondary"
                 style={{ height: 44, marginLeft: 5 }}
               >
                 Login
-              </a>
+              </Link>
             )}
           </div>
         </div>
