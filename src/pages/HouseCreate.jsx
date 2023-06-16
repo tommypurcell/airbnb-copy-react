@@ -47,7 +47,7 @@ export default function HouseCreate() {
     }
 
     // save form data into object and send post request to houses route
-    let newListing = await axios.post('http://localhost:4000/houses', {
+    let newListing = await axios.post('https://abb-api.onrender.com/profile', {
       description: e.target.description.value,
       title: e.target.title.value,
       rooms: e.target.numberOfRooms.value,

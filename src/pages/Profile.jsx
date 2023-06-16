@@ -84,7 +84,7 @@ export default function Profile() {
   const getHouses = async () => {
     try {
       let response = await axios.get(
-        `http://localhost:4000/houses?host=${user._id}`
+        `https://abb-api.onrender.com/houses?host=${user._id}`
       )
       console.log(response.data)
       // set the houses state variable to the response data
@@ -99,7 +99,7 @@ export default function Profile() {
   const getProfile = async () => {
     try {
       let userProfile = await axios.get(
-        `https://calorie-counter-api-portalversion.onrender.com/profile`,
+        `https://abb-api.onrender.com/profile`,
         { withCredentials: true }
       )
 
@@ -128,7 +128,7 @@ export default function Profile() {
         return
       }
       // send PATCH request to /profile
-      let response = await axios.patch(`http://localhost:4000/profile`, {
+      let response = await axios.patch(`https://abb-api.onrender.com/profile`, {
         name: e.target.name.value,
         email: e.target.email.value,
         avatar: e.target.avatar.value,

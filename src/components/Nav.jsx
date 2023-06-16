@@ -11,7 +11,7 @@ export default function Nav() {
 
   // check if user is logged in
   const checkLogin = async () => {
-    let user = await axios.get('http://localhost:4000/profile')
+    let user = await axios.get('https://abb-api.onrender.com/profile')
     if (user.data.name) {
       console.log(user.data.name)
       setLoggedIn(true)
@@ -23,7 +23,7 @@ export default function Nav() {
 
   const requestLogout = async (e) => {
     e.preventDefault()
-    let userToLogout = await axios.get('http://localhost:4000/logout')
+    let userToLogout = await axios.get('https://abb-api.onrender.com/logout')
     console.log(userToLogout.data)
     navigate('/login')
   }

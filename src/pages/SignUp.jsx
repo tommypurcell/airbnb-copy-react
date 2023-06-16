@@ -11,7 +11,7 @@ export default function SignUp() {
   // access api
   const makeAccount = async (e) => {
     e.preventDefault()
-    let newAccount = await axios.post('http://localhost:4000/signup', {
+    let newAccount = await axios.post('https://abb-api.onrender.com/signup', {
       name: e.target.fullName.value,
       avatar: e.target.profilePic.value,
       email: e.target.email.value,

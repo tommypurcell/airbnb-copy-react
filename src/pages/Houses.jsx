@@ -40,7 +40,7 @@ export default function Houses() {
   const searchHouses = async (e) => {
     e.preventDefault()
     try {
-      let result = await axios.get(`http://localhost:4000/houses`, {
+      let result = await axios.get(`https://abb-api.onrender.com/houses`, {
         params: {
           price: price,
           location: location,
