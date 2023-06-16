@@ -15,10 +15,13 @@ export default function Login() {
     console.log('email', e.target.email.value)
     console.log('password', e.target.password.value)
 
-    let loginAccount = await axios.post('http://localhost:4000/login', {
-      email: e.target.email.value,
-      password: e.target.password.value,
-    })
+    let loginAccount = await axios.post(
+      'https://calorie-counter-api-portalversion.onrender.com/login',
+      {
+        email: e.target.email.value,
+        password: e.target.password.value,
+      }
+    )
     console.log(loginAccount.data)
     if (
       loginAccount.data !=

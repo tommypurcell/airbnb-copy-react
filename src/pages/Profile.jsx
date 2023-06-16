@@ -98,7 +98,9 @@ export default function Profile() {
   // function that runs when page loads and performs GET request to /profile
   const getProfile = async () => {
     try {
-      let userProfile = await axios.get(`http://localhost:4000/profile`)
+      let userProfile = await axios.get(
+        `https://calorie-counter-api-portalversion.onrender.com/profile`
+      )
 
       setUser(userProfile.data)
       return userProfile
