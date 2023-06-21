@@ -22,7 +22,7 @@ export default function Houses() {
 
   const getHouses = async () => {
     try {
-      let result = await axios.get(`http://localhost:4000/houses`)
+      let result = await axios.get(`https://abb-api.onrender.com/houses`)
       console.log(result.data)
       setHouses(result.data)
     } catch (err) {

@@ -4,6 +4,9 @@ import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 axios.defaults.withCredentials = true
 
+const render_url = process.env.REACT_APP_RENDER_URL
+const local_url = process.env.REACT_APP_LOCAL_URL
+
 export default function Nav() {
   const navigate = useNavigate()
 
@@ -11,7 +14,7 @@ export default function Nav() {
 
   // check if user is logged in
   const checkLogin = async () => {
-    let user = await axios.get('https://abb-api.onrender.com/profile')
+    let user = await axios.get(`${local_url}/profile`)
     if (user.data.name) {
       console.log(user.data.name)
       setLoggedIn(true)

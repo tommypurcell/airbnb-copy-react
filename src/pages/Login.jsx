@@ -4,8 +4,10 @@ import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 axios.defaults.withCredentials = true
 
-const api_url = 'https://abb-api.onrender.com'
-const local_url = 'http://localhost:4000'
+const render_url = process.env.REACT_APP_RENDER_URL
+const local_url = process.env.REACT_APP_LOCAL_URL
+
+console.log(render_url)
 
 export default function Login() {
   const navigate = useNavigate()
@@ -18,7 +20,7 @@ export default function Login() {
     console.log('email', e.target.email.value)
     console.log('password', e.target.password.value)
 
-    let loginAccount = await axios.post(`${local_url}/login`, {
+    let loginAccount = await axios.post(`${render_url}/login`, {
       email: e.target.email.value,
       password: e.target.password.value,
     })

@@ -5,6 +5,10 @@ import axios from 'axios'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
+// api urls from env
+const render_url = process.env.REACT_APP_RENDER_URL
+const local_url = process.env.REACT_APP_LOCAL_URL
+
 export default function Profile() {
   // create state variable for user
   const [user, setUser] = useState({})
@@ -14,72 +18,6 @@ export default function Profile() {
 
   // navigate
   const navigate = useNavigate()
-
-  // houses array
-
-  // let houses = [
-  //   {
-  //     image:
-  //       'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295027/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2002/house_02_01.png',
-  //     title: 'Luxury Villa in Chaweng',
-  //     price: 350,
-  //     description:
-  //       'This is a stylish house that has everything you need on your vacation.',
-  //     location: 'Koh Samui',
-  //     rooms: 3,
-  //     reviews: 2,
-  //     score: 8,
-  //   },
-  //   {
-  //     image:
-  //       'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295027/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2003/house_03_01.png',
-  //     title: 'Private Villa Lotus 1',
-  //     price: 150,
-  //     description:
-  //       'This is a stylish house that has everything you need on your vacation.',
-  //     location: 'Koh Phangan',
-  //     rooms: 2,
-  //     reviews: 1,
-  //     score: 8,
-  //   },
-  //   {
-  //     image:
-  //       'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295027/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2004/house_04_01.png',
-  //     title: 'Mountain Villa',
-  //     price: 200,
-  //     description:
-  //       'This is a stylish house that has everything you need on your vacation.',
-  //     location: 'Koh Phangan',
-  //     rooms: 4,
-  //     reviews: 6,
-  //     score: 7,
-  //   },
-  //   {
-  //     image:
-  //       'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295027/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2005/house_05_01.png',
-  //     title: 'Pool Villa',
-  //     price: 100,
-  //     description:
-  //       'This is a stylish house that has everything you need on your vacation.',
-  //     location: 'Koh Phangan',
-  //     rooms: 3,
-  //     reviews: 0,
-  //     score: 0,
-  //   },
-  //   {
-  //     image:
-  //       'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295027/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2005/house_05_01.png',
-  //     title: 'Pool Villa',
-  //     price: 100,
-  //     description:
-  //       'This is a stylish house that has everything you need on your vacation.',
-  //     location: 'Koh Phangan',
-  //     rooms: 3,
-  //     reviews: 0,
-  //     score: 0,
-  //   },
-  // ]
-  // GET request to /houses passing the user _id as the host in the query string
 
   const getHouses = async () => {
     try {
@@ -98,10 +36,10 @@ export default function Profile() {
   // function that runs when page loads and performs GET request to /profile
   const getProfile = async () => {
     try {
-      let userProfile = await axios.get(
-        `https://abb-api.onrender.com/profile`,
-        { withCredentials: true }
-      )
+      let userProfile = await axios.get(`${local_url}/profile`, {
+        withCredentials: true,
+      })
+      console.log(userProfile.data)
 
       setUser(userProfile.data)
       return userProfile
@@ -128,7 +66,7 @@ export default function Profile() {
         return
       }
       // send PATCH request to /profile
-      let response = await axios.patch(`https://abb-api.onrender.com/profile`, {
+      let response = await axios.patch(`${local_url}/profile`, {
         name: e.target.name.value,
         email: e.target.email.value,
         avatar: e.target.avatar.value,
@@ -141,12 +79,11 @@ export default function Profile() {
   }
 
   useEffect(() => {
-    // perform GET request to /pofile as soon as page loads
-    // use the data to fill out the form
+    // perform GET request to /profile
     getProfile()
 
     // perform GET request to /houses as soon as page loads
-    getHouses()
+    // getHouses()
   }, [])
 
   return (
