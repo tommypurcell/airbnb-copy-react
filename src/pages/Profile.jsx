@@ -36,7 +36,7 @@ export default function Profile() {
   // function that runs when page loads and performs GET request to /profile
   const getProfile = async () => {
     try {
-      let userProfile = await axios.get(`${local_url}/profile`, {
+      let userProfile = await axios.get(`${render_url}/profile`, {
         withCredentials: true,
       })
       console.log(userProfile.data)
@@ -66,7 +66,7 @@ export default function Profile() {
         return
       }
       // send PATCH request to /profile
-      let response = await axios.patch(`${local_url}/profile`, {
+      let response = await axios.patch(`${render_url}/profile`, {
         name: e.target.name.value,
         email: e.target.email.value,
         avatar: e.target.avatar.value,
