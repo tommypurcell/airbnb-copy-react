@@ -16,20 +16,19 @@ Here are some screenshots showcasing different sections of the Airbnb Clone:
 
 ### Home Page
 
-![Home Page](./public/images/home.png)
+![Home Page](https://github.com/tommypurcell/airbnb-copy-react/raw/master/public/images/home.png)
 
 The home page provides an overview of available listings and a search feature to filter results.
 
 ### User Authentication
 
-![User Login](./public/images/login.png)
+![User Login](https://github.com/tommypurcell/airbnb-copy-react/raw/master/public/images/login.png)
 
 Users can sign up and log in to access additional features, such as managing their own listings and leaving reviews.
 
 ### Reviews
 
-![Reviews](./public/images/reviews2.png)
-![Reviews](./public/images/reviews1.png)
+![Reviews](https://github.com/tommypurcell/airbnb-copy-react/raw/master/public/images/reviews1.png)
 
 Authenticated users can leave reviews and ratings for listings they have booked.
 
