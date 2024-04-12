@@ -8,7 +8,6 @@ Welcome to the Airbnb Clone project! This project is a functional copy of Airbnb
 - Home Listings: Users can browse available home listings with detailed information, including photos, descriptions, and pricing.
 - Listing Management: Authenticated users can create and manage their own listings, including adding photos, updating details, and setting availability.
 - Reviews: Authenticated users can leave reviews and ratings for listings they have booked.
-- User Dashboard: Authenticated users have access to a personalized dashboard, where they can view their bookings and manage their profile.
 
 ## Screenshots
 
@@ -32,9 +31,6 @@ Users can sign up and log in to access additional features, such as managing the
 
 Authenticated users can leave reviews and ratings for listings they have booked.
 
-### User Dashboard
-
-![User Dashboard](./public/images/dashboard.png)
 
 Authenticated users have access to a personalized dashboard, where they can view their bookings and manage their profile.
 
